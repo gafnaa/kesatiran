@@ -31,6 +31,5 @@ To learn more about Next.js, check out the following resources:
 
 ## 🚀 Deploy on Vercel
 The easiest way to deploy your Next.js app is through Vercel, the creators of Next.js.
-
 Check out the deployment documentation for more information.
 
