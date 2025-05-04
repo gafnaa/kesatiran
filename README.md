@@ -1,6 +1,7 @@
-# Next.js App
+# Kesatiran Webpage
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is a web project built using [Next.js](https://nextjs.org) to introduce my friend group.  
+The website features an introduction to each member, a section about them, and showcases creative works or projects they've made.
 
 ## 🚀 Getting Started
 
