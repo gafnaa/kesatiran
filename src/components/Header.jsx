@@ -3,7 +3,7 @@ import Navbar from './Navbar';
 
 const Header = () => {
     return <header className='py-10 xl:py-10 text-white bg-[#101010]'>
-        <div className="container mx-auto px-8">
+        <div className="container mx-auto flex justify-between items-center">
               {/* Logo */}
             <Link href="/">
                 <h1 className="text-white font-bold font-sans text-3xl tracking-[-1px]">Kesatiran
@@ -11,7 +11,12 @@ const Header = () => {
             </Link>
 
             {/* Navigation */}
+            <div className="hidden xl:flex">
             <Navbar />
+            </div>
+
+            {/* Mobile Navigation */}
+            <div className="xl:hidden">mobile nav</div>
             </div>
         </header>
 };
