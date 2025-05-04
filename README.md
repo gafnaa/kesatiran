@@ -1,35 +1,43 @@
-# Kesatiran Webpage
+# Kesatiran
 
-This is a web project built using [Next.js](https://nextjs.org) to introduce my friend group.  The website features an introduction to each member, a section about them, and showcases creative works or projects they've made.
+Website "Kesatiran" merupakan proyek web yang dibuat dengan menggunakan **Next.js** dan **Tailwind CSS**.
 
-## 🚀 Getting Started
+## 🚧 Progress Pengembangan
 
-To start the development server, run:
+### ✅ Struktur Dasar
+- [x] Inisialisasi proyek dengan `create-next-app`
+- [x] Setup Tailwind CSS v4
+- [x] Penambahan halaman utama (`/`)
+- [x] Navigasi dasar (navbar dan footer)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-Then open http://localhost:3000 in your browser to view the app.
+### ✅ Halaman
+- [x] Home (`/`) – pengantar dan landing page
+- [x] About (`/about`) – info tentang circle
+- [x] Contact (`/contact`) – halaman kontak
 
-You can start editing the app by modifying the file at `app/page.js`. Changes are automatically reflected in the browser.
+### ✅ Komponen
+- [x] Header dengan background `#101010` dan font **Helvetica**
+- [x] Footer dasar
+- [x] Routing antar halaman menggunakan `next/link`
 
-This project uses `next/font` to automatically optimize and load Geist, a modern font family by Vercel.
+### 🛠️ Yang Akan Dikerjakan
+- [ ] Halaman khusus untuk karya dan portofolio
+- [ ] Desain UI yang lebih estetik dan konsisten
+- [ ] Responsif untuk mobile & tablet
+- [ ] Penambahan animasi ringan
+- [ ] Penggunaan metadata dinamis untuk SEO
 
-## 📚 Learn More
+---
 
-To learn more about Next.js, check out the following resources:
+## 📁 Teknologi yang Digunakan
+- **Next.js 14 (App Router)**
+- **Tailwind CSS v4**
+- **Geist Font (Google Fonts)**
+- **React Components (dengan JSX/TSX)**
 
-- Official Documentation – Learn about features and API.
-- Next.js Tutorial – Interactive tutorial to get started.
-- GitHub Repository – Feedback and contributions welcome!
+---
 
-## 🚀 Deploy on Vercel
-The easiest way to deploy your Next.js app is through Vercel, the creators of Next.js.
-Check out the deployment documentation for more information.
+## 🧑‍💻 Developer Notes
+
+Proyek ini masih dalam tahap awal dan akan terus dikembangkan secara bertahap.
 
