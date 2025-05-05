@@ -16,7 +16,10 @@ const Header = () => {
             </div>
 
             {/* Mobile Navigation */}
-            <div className="xl:hidden">mobile nav</div>
+            
+            <div className="xl:hidden">
+  <Navbar />
+</div>
             </div>
         </header>
 };
