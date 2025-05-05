@@ -3,56 +3,43 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react'; 
+import { usePathname } from 'next/navigation';
+
+
+const links = [
+  {
+    name: "HOME",
+    path: "/",
+  },
+  {
+    name: "PROJECTS",
+    path: "/projects",
+  },
+  {
+    name: "ABOUT US",
+    path: "/aboutus",
+  },
+  {
+    name: "CONTACT",
+    path: "/contact",
+  },
+];
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
+  console.log(pathname);
+  return <nav className='flex gap-8'>
+    {links.map((link, index) => {
+      return <Link
+      href={link.path}
+      key={index}
+      className={`${link.path === pathname ? "text-[#FF1D1D] border-b-1 border-[#FF1D1D]" : ""} capitalize font-light hover:text-[#FF1D1D] transition-all`}
+    >
+      {link.name}
+    </Link>
+    })}
+  </nav>
 
-  const navItems = [
-    { name: 'PROJECT', href: '/project' },
-    { name: 'ABOUT US', href: '/about' },
-    { name: 'CONTACT', href: '/contact' },
-  ];
-
-  return (
-    <>
-      {/* Desktop Nav */}
-      <nav className="hidden xl:flex gap-12 items-center text-white font-light text-[15px]">
-        {navItems.map((item) => (
-          <Link
-            key={item.name}
-            href={item.href}
-            className="hover:text-[#FF1D1D] transition-colors"
-          >
-            {item.name}
-          </Link>
-        ))}
-      </nav>
-
-      {/* Mobile Hamburger */}
-      <div className="xl:hidden relative">
-        <button onClick={() => setIsOpen(!isOpen)} className="text-white">
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-
-        {isOpen && (
-          <div className="absolute top-12 right-0 bg-[#101010] shadow-lg rounded-lg px-6 py-4 z-50">
-            <nav className="flex flex-col gap-4 text-white font-light text-base">
-              {navItems.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  onClick={() => setIsOpen(false)}
-                  className="hover:text-[#FF1D1D] transition-colors"
-                >
-                  {item.name}
-                </Link>
-              ))}
-            </nav>
-          </div>
-        )}
-      </div>
-    </>
-  );
 };
 
 export default Navbar;
