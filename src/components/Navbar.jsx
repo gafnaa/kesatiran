@@ -8,15 +8,15 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navItems = [
-    { name: 'Project', href: '/project' },
-    { name: 'About Us', href: '/about' },
-    { name: 'Contact', href: '/contact' },
+    { name: 'PROJECT', href: '/project' },
+    { name: 'ABOUT US', href: '/about' },
+    { name: 'CONTACT', href: '/contact' },
   ];
 
   return (
     <>
       {/* Desktop Nav */}
-      <nav className="hidden xl:flex gap-8 items-center text-white font-medium text-lg">
+      <nav className="hidden xl:flex gap-12 items-center text-white font-light text-lg">
         {navItems.map((item) => (
           <Link
             key={item.name}
@@ -36,7 +36,7 @@ const Navbar = () => {
 
         {isOpen && (
           <div className="absolute top-12 right-0 bg-[#101010] shadow-lg rounded-lg px-6 py-4 z-50">
-            <nav className="flex flex-col gap-4 text-white font-medium text-base">
+            <nav className="flex flex-col gap-4 text-white font-light text-base">
               {navItems.map((item) => (
                 <Link
                   key={item.name}
