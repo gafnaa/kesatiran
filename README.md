@@ -18,17 +18,19 @@ Website "Kesatiran" merupakan proyek web yang dibuat dengan menggunakan **Next.j
 - [x] Header
 - [ ] Footer
 
----
+
 
 ## 📁 Teknologi yang Digunakan
 - **Next.js 14 (App Router)**
 - **Tailwind CSS v4**
 - **React Components (dengan JSX/TSX)**
 
----
+
 
 ## 🧑‍💻 Developer Notes
 
 Proyek ini masih dalam tahap awal dan akan terus dikembangkan secara bertahap.
+
+## Screenshot
 ![kss](https://i.imgur.com/2qtfyY6.png)
 
