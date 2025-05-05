@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
-import { Menu, X } from 'lucide-react'; // pastikan kamu install lucide-react: npm i lucide-react
+import { Menu, X } from 'lucide-react'; 
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,7 +16,7 @@ const Navbar = () => {
   return (
     <>
       {/* Desktop Nav */}
-      <nav className="hidden xl:flex gap-12 items-center text-white font-light text-lg">
+      <nav className="hidden xl:flex gap-12 items-center text-white font-light text-[15px]">
         {navItems.map((item) => (
           <Link
             key={item.name}
