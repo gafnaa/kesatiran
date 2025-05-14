@@ -2,22 +2,44 @@
 
 Website "Kesatiran" merupakan proyek web yang dibuat dengan menggunakan **Next.js** dan **Tailwind CSS**.
 
+## Cara run
+
+Download repo dulu
+```
+git clone https://github.com/gafnaa/kesatiran.git
+```
+
+Install dependencies:
+```
+npm start
+```
+
+Run project
+```
+npm run dev
+```
+Proyek akan berjalan di http://localhost:3000.
+
+## Struktur Direktori
+
+```
+├───app
+│   ├───about
+│   ├───contact
+│   ├───home
+│   └───projects
+├───components
+└───styles
+```
+
 ## 🚧 Progress Pengembangan
 
-### ✅ Struktur Dasar
-- [x] Setup Tailwind CSS v4
-- [x] Penambahan halaman utama (`/`)
-- [x] Navigasi dasar (navbar dan footer)
+Component:
+- Navbar : Done
+- Footer : otw
 
-### ✅ Halaman
-- [ ] Home (`/`) – pengantar dan landing page
-- [ ] About (`/about`) – info tentang circle
-- [ ] Contact (`/contact`) – halaman kontak
-
-### ✅ Komponen
-- [x] Header
-- [ ] Footer
-
+Pages
+- all in progress
 
 ## 📁 Teknologi yang Digunakan
 - **Next.js 14 (App Router)**
