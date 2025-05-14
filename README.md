@@ -23,13 +23,24 @@ Proyek akan berjalan di http://localhost:3000.
 ## Struktur Direktori
 
 ```
-├───app
-│   ├───about
-│   ├───contact
-│   ├───home
-│   └───projects
-├───components
-└───styles
+.
+├── app
+│   ├── about
+│   │   └── page.jsx
+│   ├── contact
+│   │   └── page.jsx
+│   ├── favicon.ico
+│   ├── home
+│   │   └── page.js
+│   ├── layout.js
+│   ├── page.js
+│   └── projects
+│       └── page.jsx
+├── components
+│   ├── Header.jsx
+│   └── Navbar.jsx
+└── styles
+    └── globals.css
 ```
 
 ## 🚧 Progress Pengembangan
