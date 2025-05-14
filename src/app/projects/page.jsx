@@ -3,7 +3,7 @@
 const service = () => {
   return (
     <div>
-      service page
+    projects page
     </div>
   )
 }
