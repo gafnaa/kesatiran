@@ -2,7 +2,7 @@
 
 Website "Kesatiran" merupakan proyek web yang dibuat dengan menggunakan **Next.js** dan **Tailwind CSS**.
 
-## Cara run
+## Cara Run
 
 Download repo dulu
 ```
@@ -43,7 +43,7 @@ Proyek akan berjalan di http://localhost:3000.
     └── globals.css
 ```
 
-## 🚧 Progress Pengembangan
+## Progress Developing
 
 Component:
 - Navbar : Done
@@ -52,13 +52,13 @@ Component:
 Pages
 - all in progress
 
-## 📁 Teknologi yang Digunakan
-- **Next.js 14 (App Router)**
-- **Tailwind CSS v4**
-- **React Components**
+## Teknologi yang Digunakan
+- Next.js 14 (App Router)
+- Tailwind CSS v4
+- React Components
 
 
-## 🧑‍💻 Developer Notes
+## Developer Notes
 
 Proyek ini masih dalam tahap awal dan akan terus dikembangkan secara bertahap.
 
