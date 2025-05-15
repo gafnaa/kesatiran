@@ -15,7 +15,7 @@ const PageTransition = ({ children }) => {
             opacity: 0,  // Setel opacity ke 1 ketika animasi selesai
             transition: { delay: 1, duration: 0.5, ease: "easeInOut" },  // Perbaiki typo 'transiton'
           }}
-          className='h-screen w-screen fixed bg-primary top-0 pointer-events-none z-50'  // Perbaiki className
+          className='h-screen w-screen fixed bg-primary top-0 pointer-events-none'  // Perbaiki className
         />
         {children}
       </div>
