@@ -1,24 +1,29 @@
-"use client";
+'use client';
 
-import { AnimatePresence, motion } from 'framer-motion';  // Perbaiki import motion
+import { AnimatePresence, motion } from 'framer-motion';
 import { usePathname } from 'next/navigation';
+import { useEffect, useState } from 'react';
 
 const PageTransition = ({ children }) => {
-  const pathname = usePathname(); // Mendapatkan pathname saat ini
+  const pathname = usePathname();
+  const [displayChildren, setDisplayChildren] = useState(children);
+
+  // Transisi keluar-masuk halaman
+  useEffect(() => {
+    setDisplayChildren(children);
+  }, [pathname, children]);
 
   return (
-    <AnimatePresence>
-      <div key={pathname}>  {/* Perbaiki key */}
-        <motion.div 
-          initial={{ opacity: 1 }}  // Perbaiki typo 'intial'
-          animate={{ 
-            opacity: 0,  // Setel opacity ke 1 ketika animasi selesai
-            transition: { delay: 1, duration: 0.5, ease: "easeInOut" },  // Perbaiki typo 'transiton'
-          }}
-          className='h-screen w-screen fixed bg-primary top-0 pointer-events-none'  // Perbaiki className
-        />
-        {children}
-      </div>
+    <AnimatePresence mode="wait">
+      <motion.div
+        key={pathname}
+        initial={{ opacity: 0, y: 15 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -10 }}
+        transition={{ duration: 0.5, ease: 'easeInOut' }}
+      >
+        {displayChildren}
+      </motion.div>
     </AnimatePresence>
   );
 };
