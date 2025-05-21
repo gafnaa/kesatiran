@@ -20,7 +20,7 @@ const HeroSection = () => {
         <motion.h1 className="text-4xl md:text-6xl font-bold leading-tight">
           EVERYDAY GET <span className="text-red-500">SATIRED</span>{' '}
           <br className="block md:hidden" />
-          AND ALWAYS <span className="text-red-accent">SATIRING.</span>
+          AND ALWAYS <span className="text-red-500">SATIRING.</span>
         </motion.h1>
         <motion.p
           initial={{ opacity: 0 }}

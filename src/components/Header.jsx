@@ -1,36 +1,86 @@
-// components/Header.jsx
-// Pembungkus utama untuk header
-// Tidak memerlukan 'use client' jika hanya me-render komponen client lain dan Link dari next/link
+'use client';
 
+import { useState, useEffect, useRef } from 'react';
+import { motion, useAnimation } from 'framer-motion';
 import Link from 'next/link';
-import Navbar from './Navbar'; // Import Navbar (versi desktop only)
-import MobileNav from './MobileNav'; // Import MobileNav (versi mobile button & drawer)
+import Navbar from './Navbar';
+import MobileNav from './MobileNav';
 
 const Header = () => {
-    return (
-      // Tambahkan styling header utama (sticky, background, padding)
-      <header className='sticky top-0 z-50 py-4 px-6 md:px-10 text-white bg-dark-bg'> {/* Gunakan bg-dark-bg dari tailwind.config */}
-          <div className="container mx-auto flex justify-between items-center">
-              {/* Logo */}
-              <Link href="/">
-                  {/* Menggunakan styling logo dari Navbar.jsx sebelumnya agar konsisten */}
-                  <div className="text-xl font-bold cursor-pointer">Kesatiran.</div>
-                  {/* Atau gunakan styling Anda jika prefer: */}
-                  {/* <h1 className="text-white font-bold font-sans text-3xl tracking-[-1px]">Kesatiran<span className='text-red-accent'>.</span></h1> */}
-              </Link>
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const controls = useAnimation();
+  const ticking = useRef(false);
+  const scrollThreshold = 80;
 
-              {/* Navigation Desktop (Navbar.jsx versi desktop) */}
-              <div className="hidden md:flex items-center"> {/* Menggunakan md:flex sesuai desain awal */}
-                 <Navbar /> {/* Komponen Navbar yang hanya berisi link desktop */}
-              </div>
+  const handleScroll = () => {
+    const currentScrollY = window.scrollY;
 
-              {/* Mobile Navigation (MobileNav.jsx) */}
-              <div className="md:hidden"> {/* Menggunakan md:hidden sesuai desain awal */}
-                 <MobileNav /> {/* Komponen MobileNav yang berisi tombol & drawer */}
-              </div>
+    if (!ticking.current) {
+      window.requestAnimationFrame(() => {
+        // Scroll ke bawah dan sudah lewat ambang, maka sembunyikan
+        if (currentScrollY > lastScrollY && currentScrollY > scrollThreshold) {
+          controls.start('hidden');
+        }
+        // Scroll ke atas atau masih dekat atas, maka tampilkan
+        else {
+          controls.start('visible');
+        }
+
+        setLastScrollY(currentScrollY);
+        ticking.current = false;
+      });
+
+      ticking.current = true;
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [lastScrollY]);
+
+  const variants = {
+    visible: {
+      y: 0,
+      transition: {
+        duration: 0.4,
+        ease: 'easeOut'
+      }
+    },
+    hidden: {
+      y: -100,
+      transition: {
+        duration: 0.4,
+        ease: 'easeIn'
+      }
+    }
+  };
+
+  return (
+    <motion.header
+      animate={controls}
+      variants={variants}
+      initial="visible"
+      className="sticky top-0 z-50 py-4 px-6 md:px-10 text-white bg-dark-bg bg-opacity-100 shadow-sm"
+    >
+      <div className="container mx-auto flex justify-between items-center">
+        <Link href="/" passHref>
+          <div className="text-white font-bold font-sans text-3xl tracking-[-1px] px-10">
+            Kesatiran<span className="text-red-600">.</span>
           </div>
-      </header>
-    );
+        </Link>
+
+        <div className="hidden md:flex items-center px-10">
+          <Navbar />
+        </div>
+
+        <div className="md:hidden">
+          <MobileNav />
+        </div>
+      </div>
+    </motion.header>
+  );
 };
 
 export default Header;
