@@ -1,34 +1,43 @@
+"use client";
+
 import Link from 'next/link';
-import React from 'react';
+import { usePathname } from 'next/navigation';
+import React, { useEffect, useState } from 'react';
 
 const Navbar = () => {
+  const pathname = usePathname();
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
+
+  const navLinks = [
+    { name: 'Home', href: '/' },
+    { name: 'Members', href: '/member' },
+    { name: 'Projects', href: '/projects' },
+    { name: 'About Us', href: '/about' },
+  ];
+
   return (
-    <nav className="bg-[#101010] p-6 py-6 text-white">
+    <nav className={`bg-[#101010] p-6 py-6 text-white transition-all duration-1000 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-full'}`}>
       <div className="container mx-auto flex justify-between items-center">
-        <Link href="/" className="text-2xl font-bold" style={{ letterSpacing: '-1px' }}>
+        <Link href="/" className="text-2xl font-bold hover:text-[#FF1D1D]" style={{ letterSpacing: '-1px' }}>
           Kesatiran.
         </Link>
         <ul className="flex space-x-4">
-          <li>
-            <Link href="/" className="hover:text-gray-300 uppercase">
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link href="/member" className="hover:text-gray-300 uppercase">
-              Members
-            </Link>
-          </li>
-          <li>
-            <Link href="/projects" className="hover:text-gray-300 uppercase">
-              Projects
-            </Link>
-          </li>
-          <li>
-            <Link href="/about" className="hover:text-gray-300 uppercase">
-              About Us
-            </Link>
-          </li>
+          {navLinks.map((link) => (
+            <li key={link.name}>
+              <Link
+                href={link.href}
+                className={`hover:text-[#FF1D1D] uppercase transition-all duration-300 ease-in-out ${
+                  pathname === link.href ? 'border-b-2 border-[#FF1D1D] pb-1' : ''
+                }`}
+              >
+                {link.name}
+              </Link>
+            </li>
+          ))}
         </ul>
       </div>
     </nav>
