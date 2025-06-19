@@ -8,11 +8,10 @@ import Deck from './Deck';
 const HeroSection = () => {
   // Animasi untuk setiap kata dalam heading
   const wordVariants = {
-    hidden: { opacity: 0, y: 50, rotateX: -90 },
+    hidden: { opacity: 0, y: 50 },
     visible: (i: number) => ({
       opacity: 1,
       y: 0,
-      rotateX: 0,
       transition: {
         delay: 1.8 + i * 0.1,
         duration: 0.8,
