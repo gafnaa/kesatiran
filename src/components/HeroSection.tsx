@@ -13,7 +13,7 @@ const HeroSection = () => {
       y: 0,
       rotateX: 0,
       transition: {
-        delay: i * 0.1,
+        delay: 1.8 + i * 0.1,
         duration: 0.8,
         ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number],
       },
@@ -28,7 +28,7 @@ const HeroSection = () => {
       x: 0,
       filter: 'blur(0px)',
       transition: {
-        delay: 1.2 + i * 0.2,
+        delay: 2.0 + i * 0.2,
         duration: 0.6,
         ease: 'easeOut' as const,
       },
@@ -103,7 +103,7 @@ const HeroSection = () => {
 
   return (
     <section className="bg-[#101010] text-white overflow-hidden">
-      <div className="container mx-auto flex flex-col md:flex-row items-center justify-between min-h-screen px-6 py-20 md:py-0">
+      <div className="container mx-auto flex flex-col-reverse md:flex-row items-center justify-between min-h-screen px-6 py-20 md:py-0">
         {/* Kolom Teks (Kiri) */}
         <div className="md:w-1/2 lg:w-3/5 text-center md:text-left mb-12 md:mb-0">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold uppercase leading-tight">
@@ -154,6 +154,8 @@ const HeroSection = () => {
               variants={buttonVariants}
               whileHover={buttonHover}
               whileTap={buttonTap}
+              // FIX: Tambahkan transisi default yang cepat di sini
+              transition={{ duration: 0.1, ease: 'easeInOut' }}
             >
               <span className="relative z-10 flex items-center">
                 Learn More
@@ -171,7 +173,7 @@ const HeroSection = () => {
         </div>
 
         {/* Kolom Lingkaran (Kanan) */}
-        <div className="md:w-1/2 lg:w-2/5 flex justify-center items-center">
+        <div className="md:w-1/2 lg:w-2/5 flex justify-center items-center mb-8 md:mb-0 order-1 md:order-none my-8 md:ml-16">
           <motion.div
             className="w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 bg-gradient-to-br from-gray-300 to-gray-400 rounded-full
                        shadow-2xl relative overflow-hidden"
@@ -187,7 +189,7 @@ const HeroSection = () => {
               transition={{
                 duration: 2,
                 delay: 2,
-              ease: 'easeInOut' as const,
+                ease: 'easeInOut' as const,
               }}
             />
           </motion.div>
