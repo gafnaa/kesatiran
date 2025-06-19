@@ -3,6 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import Deck from './Deck';
 
 const HeroSection = () => {
   // Animasi untuk setiap kata dalam heading
@@ -74,24 +75,6 @@ const HeroSection = () => {
     },
   };
 
-  // Animasi untuk lingkaran
-  const circleVariants = {
-    hidden: { 
-      opacity: 0, 
-      scale: 0.5, 
-      rotate: -180,
-    },
-    visible: { 
-      opacity: 1, 
-      scale: 1, 
-      rotate: 0,
-      transition: { 
-        duration: 1.2, 
-        delay: 0.8,
-        ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number],
-      },
-    },
-  };
 
   // Membagi teks menjadi kata-kata
   const headingWords = ['Everyday', 'get', 'Satired', 'and', 'always', 'Satiring.'];
@@ -174,25 +157,7 @@ const HeroSection = () => {
 
         {/* Kolom Lingkaran (Kanan) */}
         <div className="md:w-1/2 lg:w-2/5 flex justify-center items-center mb-8 md:mb-0 order-1 md:order-none my-8 md:ml-16">
-          <motion.div
-            className="w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 bg-gradient-to-br from-gray-300 to-gray-400 rounded-full
-                       shadow-2xl relative overflow-hidden"
-            initial="hidden"
-            animate="visible"
-            variants={circleVariants}
-          >
-            {/* Efek shimmer pada lingkaran */}
-            <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
-              initial={{ x: '-100%' }}
-              animate={{ x: '100%' }}
-              transition={{
-                duration: 2,
-                delay: 2,
-                ease: 'easeInOut' as const,
-              }}
-            />
-          </motion.div>
+          <Deck />
         </div>
       </div>
     </section>
