@@ -159,7 +159,7 @@ const HeroSection = () => {
         {/* Kolom Lingkaran (Kanan) */}
         <div className="md:w-1/2 lg:w-2/5 flex justify-center items-center mb-8 md:mb-0 order-1 md:order-none my-8 md:ml-16">
           <motion.div
-            className="rounded-full overflow-hidden shadow-lg"
+            className="relative rounded-full overflow-hidden shadow-lg border-8 border-white w-75 h-75 sm:w-84 sm:h-84 md:w-[400px] md:h-[400px]"
             variants={{
               hidden: { opacity: 0, scale: 0.5 },
               visible: { opacity: 1, scale: 1 },
@@ -168,20 +168,17 @@ const HeroSection = () => {
             animate="visible"
             transition={{ duration: 1.5 }}
             whileHover={{ scale: 1.1 }}
-            style={{ 
-              width: '400px', 
-              height: '400px',
-              border: '8px solid white',
+            style={{
               boxShadow: '0 0 20px rgba(255, 255, 255, 0.5)',
             }}
           >
             <Image
               src={heroImage}
               alt="Hero Image"
-              width={400}
-              height={400}
-              className="object-cover w-full h-full"
-              style={{ borderRadius: '50%' }}
+              fill
+              className="object-cover w-full h-full rounded-full"
+              sizes="(max-width: 640px) 160px, (max-width: 768px) 256px, 400px"
+              priority
             />
           </motion.div>
         </div>
