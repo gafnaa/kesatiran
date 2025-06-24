@@ -3,7 +3,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import Deck from './Deck';
+import Image from 'next/image';
+import heroImage from '../assets/hero.JPG';
+
 
 const HeroSection = () => {
   // Animasi untuk setiap kata dalam heading
@@ -156,7 +158,27 @@ const HeroSection = () => {
 
         {/* Kolom Lingkaran (Kanan) */}
         <div className="md:w-1/2 lg:w-2/5 flex justify-center items-center mb-8 md:mb-0 order-1 md:order-none my-8 md:ml-16">
-          <Deck />
+          <motion.div
+            className="rounded-full overflow-hidden shadow-lg"
+            variants={{
+              hidden: { opacity: 0, scale: 0.5 },
+              visible: { opacity: 1, scale: 1 },
+            }}
+            initial="hidden"
+            animate="visible"
+            transition={{ duration: 1.5 }}
+            whileHover={{ scale: 1.1 }}
+            style={{ width: '400px', height: '400px' }}
+          >
+            <Image
+              src={heroImage}
+              alt="Hero Image"
+              width={400}
+              height={400}
+              className="object-cover w-full h-full"
+              style={{ borderRadius: '50%' }}
+            />
+          </motion.div>
         </div>
       </div>
     </section>
