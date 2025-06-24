@@ -38,3 +38,211 @@
   box-shadow: 0 18px 30px -10px rgba(0, 0, 0, 0.6);
   transform: translateY(-5px);
 }
+
+/* --- Custom Our Members Section Styles (Override & Update) --- */
+
+.ourMembersSection {
+  background-color: #101010;
+  min-height: 100vh;
+  position: relative;
+}
+
+.title {
+  font-size: 52px;
+  line-height: 1.2;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.titleDefault {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.titleEnter {
+  animation: titleFadeInUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.titleVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.membersText {
+  color: #FF1D1D;
+}
+
+.membersContainer {
+  max-width: 100%;
+}
+
+.membersGrid {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.membersDefault {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.membersEnter {
+  animation: membersFadeInUp 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s forwards;
+}
+
+.membersVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.memberWrapper {
+  opacity: 0;
+  transform: translateY(50px) scale(0.9);
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.memberDefault {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.memberEnter {
+  animation: memberFadeInUp 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.swipeButton {
+  background-color: #FF1D1D;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  opacity: 0;
+  transform: translateX(30px) scale(0.8);
+  box-shadow: 0 4px 20px rgba(255, 29, 29, 0.3);
+}
+
+.buttonDefault {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+}
+
+.swipeButton:hover {
+  background-color: #e01717;
+  transform: translateX(30px) scale(1.1);
+  box-shadow: 0 6px 25px rgba(255, 29, 29, 0.5);
+}
+
+.swipeButton:active {
+  transform: translateX(30px) scale(1.05);
+}
+
+.buttonEnter {
+  animation: buttonFadeInRight 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.6s forwards;
+}
+
+.buttonVisible {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+}
+
+.memberCard {
+  will-change: transform, opacity;
+}
+
+.memberCardIn {
+  opacity: 1;
+  transform: translateX(0);
+  transition: all 0.4s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+
+.memberCardOut {
+  opacity: 0;
+  transform: translateX(-60px);
+  transition: all 0.4s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+
+/* Keyframe Animations */
+@keyframes titleFadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes membersFadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes memberFadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes buttonFadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+/* Swipe Animation for Members */
+.membersGrid {
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .swipeButton {
+    width: 50px;
+    height: 50px;
+    margin-left: 16px;
+  }
+  
+  .title {
+    font-size: 36px;
+  }
+  
+  .membersGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 28px;
+  }
+  
+  .swipeButton {
+    width: 45px;
+    height: 45px;
+  }
+}
