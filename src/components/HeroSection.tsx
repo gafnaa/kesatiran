@@ -64,7 +64,7 @@ const HeroSection = () => {
     y: -2,
     boxShadow: '0 8px 30px rgba(255, 29, 29, 0.4)',
     transition: {
-      duration: 0.3,
+      duration: 0.15,
       ease: 'easeInOut' as const,
     },
   };
@@ -168,7 +168,12 @@ const HeroSection = () => {
             animate="visible"
             transition={{ duration: 1.5 }}
             whileHover={{ scale: 1.1 }}
-            style={{ width: '400px', height: '400px' }}
+            style={{ 
+              width: '400px', 
+              height: '400px',
+              border: '8px solid white',
+              boxShadow: '0 0 20px rgba(255, 255, 255, 0.5)',
+            }}
           >
             <Image
               src={heroImage}
